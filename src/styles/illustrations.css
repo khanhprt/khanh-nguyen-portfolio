@@ -1,0 +1,221 @@
+/* =========================================================
+   SỞ THÍCH — "Off the clock" (hoàng hôn, giữa gallery và café)
+   ========================================================= */
+.panel-hobbies {
+  padding: 100px 20px 0;
+  background:
+    radial-gradient(45% 35% at 70% 18%, rgba(255, 214, 160, 0.75), transparent 70%),
+    linear-gradient(180deg, #fbe6d3 0%, #f6d2b9 60%, #efc2a3 100%);
+}
+.hobbies-intro { max-width: 560px; margin-bottom: 40px; position: relative; z-index: 2; }
+.hobbies { position: relative; z-index: 2; display: grid; gap: 64px; padding-bottom: 40px; }
+.hobby .period { color: var(--accent); }
+.hobby-art { height: 240px; }
+.floor-hobbies {
+  margin: 0 -20px;
+  background: linear-gradient(180deg, #b98e6b 0, #ad8360 8px, #a07656 100%),
+    repeating-linear-gradient(90deg, transparent 0 160px, rgba(0, 0, 0, 0.06) 160px 162px);
+  background-blend-mode: multiply;
+}
+
+/* Desktop */
+.h-mode .panel-hobbies { display: flex; }
+.h-mode .hobbies-intro { flex: none; width: 46vw; padding: 0 4vw 0 12vw; align-self: center; margin: 0 0 12vh; }
+.h-mode .hobbies { display: flex; gap: 0; padding: 0; height: 100%; }
+.h-mode .hobby-art { left: 35vw; height: 46vh; }
+
+
+/* Mobile: minh hoạ ở giữa, nhân vật đứng phía trước */
+.m-mode .hobbies-intro { width: 100vw; padding: 0 24px 0 28px; align-self: flex-start; margin: 96px 0 0; }
+.m-mode .hobby-art { height: min(36vh, 84vw * 300 / 320); left: calc(50vw - min(36vh, 84vw * 300 / 320) * 320 / 600); }
+
+/* Animation */
+.note { opacity: 0; animation: note-float 3.2s ease-in-out infinite; }
+.note.n2 { animation-delay: -1.1s; }
+.note.n3 { animation-delay: -2.2s; }
+@keyframes note-float {
+  0% { opacity: 0; transform: translate(0, 10px); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translate(14px, -50px) rotate(14deg); }
+}
+.strings line { animation: string-buzz 0.09s linear infinite alternate; }
+@keyframes string-buzz { to { transform: translateX(0.6px); } }
+.speaker { transform-box: fill-box; transform-origin: center; animation: thump 0.48s ease-in-out infinite alternate; }
+@keyframes thump { to { transform: scale(1.08); } }
+.rgb { animation: rgb 4s linear infinite; }
+@keyframes rgb { to { filter: hue-rotate(360deg); } }
+.clash { opacity: 0; transform-box: fill-box; transform-origin: center; animation: clash 4s ease-out infinite; }
+@keyframes clash { 0%, 40% { opacity: 0; transform: scale(0.3); } 47% { opacity: 1; transform: scale(1.5); } 60%, 100% { opacity: 0; transform: scale(2); } }
+.hp { transform-box: fill-box; transform-origin: left; animation: hp 4s ease-in-out infinite; }
+@keyframes hp { 0%, 40% { transform: scaleX(1); } 55% { transform: scaleX(0.55); } 100% { transform: scaleX(1); } }
+.route { stroke-dasharray: 5 6; animation: dash 1.1s linear infinite; }
+@keyframes dash { to { stroke-dashoffset: -22; } }
+.pulse-ring { transform-box: fill-box; transform-origin: center; animation: ring 1.8s ease-out infinite; }
+@keyframes ring { from { transform: scale(1); opacity: 0.9; } to { transform: scale(3.4); opacity: 0; } }
+.globe-land { animation: spin-globe 9s linear infinite; }
+@keyframes spin-globe { to { transform: translateX(-120px); } }
+.reel { transform-box: fill-box; transform-origin: center; animation: spin 2.4s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.beam { animation: beam 0.16s steps(2) infinite; }
+@keyframes beam { from { opacity: 0.5; } to { opacity: 0.36; } }
+.grain { animation: grain 0.12s steps(2) infinite; }
+@keyframes grain { from { opacity: 0.06; } to { opacity: 0.02; } }
+.twinkle { animation: blink 2.4s steps(1) infinite; }
+.twinkle.t2 { animation-delay: -1.2s; }
+.pop { transform-box: fill-box; animation: pop 1.8s ease-out infinite; }
+.pop.p2 { animation-delay: -0.6s; }
+.pop.p3 { animation-delay: -1.2s; }
+@keyframes pop { 0%, 60% { transform: translateY(0); } 72% { transform: translateY(-16px); } 100% { transform: translateY(0); } }
+.clap { transform-box: view-box; transform-origin: 262px 270px; animation: clap 2.6s ease-in-out infinite; }
+@keyframes clap { 0%, 70%, 100% { transform: rotate(-24deg); } 80% { transform: rotate(0); } }
+/* Tiết kiệm CPU: chỉ chạy khi cảnh đang hiển thị */
+.play-scope:not(.is-playing) * { animation-play-state: paused !important; }
+
+/* =========================================================
+   Animation toà nhà theo ngành
+   ========================================================= */
+@keyframes coin { 0%, 55%, 100% { transform: scaleX(1); } 65% { transform: scaleX(0.05); } 75% { transform: scaleX(1); } 85% { transform: scaleX(0.05); } 95% { transform: scaleX(1); } }
+.blink-light { animation: blink 1.4s steps(1) infinite; }
+.product-glow { animation: glow 2.2s ease-in-out infinite; }
+.scanline { animation: scan 1.5s ease-in-out infinite alternate; }
+@keyframes scan { to { transform: translateY(54px); } }
+.pay-pop { opacity: 0; transform-box: fill-box; transform-origin: 50% 100%; animation: paypop 3.4s ease-out infinite; }
+@keyframes paypop { 0%, 50% { opacity: 0; transform: translateY(8px) scale(0.6); } 60%, 88% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-6px); } }
+.shimmer { animation: shimmer 3.2s ease-in-out infinite; }
+@keyframes shimmer { 0% { transform: skewX(-20deg) translateX(-40px); } 60%, 100% { transform: skewX(-20deg) translateX(260px); } }
+.sparkle { transform-box: fill-box; transform-origin: center; animation: sparkle 2.2s ease-in-out infinite; }
+.sparkle.s2 { animation-delay: -0.8s; }
+.sparkle.s3 { animation-delay: -1.5s; }
+@keyframes sparkle { 0%, 100% { transform: scale(0); opacity: 0; } 50% { transform: scale(1); opacity: 1; } }
+.box-move { animation: boxmove 6s linear infinite; }
+.box-move.b2 { animation-delay: -2s; }
+.box-move.b3 { animation-delay: -4s; }
+@keyframes boxmove { from { transform: translateX(-50px); } to { transform: translateX(230px); } }
+.hue { animation: rgb 6s linear infinite; }
+
+/* =========================================================
+   NHÂN VẬT (Avatar) — trang phục bằng biến CSS
+   ========================================================= */
+/* "Diễn viên" — cùng kích thước & vị trí với nhân vật đi bộ để hoà vào nhau liền mạch */
+.actor { width: 140px; height: 250px; justify-self: center; position: relative; z-index: 3; }
+.h-mode .actor {
+  position: absolute; bottom: var(--floor); pointer-events: none; opacity: 0;
+  height: calc(var(--scene-h) * 250 / 420); width: calc(var(--scene-h) * 140 / 420);
+  left: calc(var(--walker-x) - var(--scene-h) * 72 / 420);
+}
+.walker { transition: none; }
+
+/* Bố cục trạm (desktop): thẻ — trạm xe buýt — Khanh Nguyen đang làm việc — toà nhà */
+.h-mode .station, .h-mode .station:last-child { width: 92vw; }
+.h-mode .building { left: 68vw; height: 62vh; }
+.h-mode .hobby-art { left: 68vw; height: 44vh; }
+.h-mode .bus-stop { left: 36vw; }
+.h-mode .tree { left: 27vw; }
+.m-mode .station, .m-mode .station:last-child { width: 100vw; }
+.m-mode .building { left: 58vw; height: 36vh; }
+.m-mode .bus-stop { left: 22vw; }
+.m-mode .tree { left: 4vw; }
+
+
+/* ---------- Animation các cảnh làm việc ---------- */
+.swipe { animation: swipe 3s ease-in-out infinite; }
+@keyframes swipe { 0%, 12% { transform: translateY(-4px); } 30% { transform: translateY(9px); } 42%, 100% { transform: translateY(-4px); } }
+.pos-ok { opacity: 0; animation: pos-ok 3s steps(1) infinite; }
+@keyframes pos-ok { 0%, 32% { opacity: 0; } 34%, 88% { opacity: 1; } 90%, 100% { opacity: 0; } }
+.receipt, .receipt-lines { transform-box: fill-box; transform-origin: 50% 100%; animation: receipt 3s ease-out infinite; }
+@keyframes receipt { 0%, 36% { transform: scaleY(0); } 70%, 88% { transform: scaleY(1); } 92%, 100% { transform: scaleY(0); } }
+.beam-scan { animation: beam-scan 3.2s ease-in-out infinite; }
+@keyframes beam-scan { 0%, 100% { opacity: 0.08; } 20%, 45% { opacity: 0.32; } }
+.scan-ok { opacity: 0; animation: pos-ok 3.2s steps(1) infinite; }
+.paid-pop { opacity: 0; transform-box: fill-box; transform-origin: 30% 100%; animation: paypop 3.2s ease-out infinite; }
+.explain { transform-box: fill-box; transform-origin: 0% 100%; animation: explain 1.6s ease-in-out infinite alternate; }
+@keyframes explain { from { transform: rotate(-8deg); } to { transform: rotate(14deg); } }
+.loan-progress { transform-box: fill-box; transform-origin: left; animation: loan 4.5s ease-in-out infinite; }
+@keyframes loan { 0% { transform: scaleX(0); } 66%, 100% { transform: scaleX(1); } }
+.loan-ok { opacity: 0; animation: loan-ok 4.5s steps(1) infinite; }
+@keyframes loan-ok { 0%, 66% { opacity: 0; } 68%, 100% { opacity: 1; } }
+.step { opacity: 0; animation: step 4.5s ease-in-out infinite; }
+.step.s2 { animation-delay: -3s; }
+.step.s3 { animation-delay: -1.5s; }
+@keyframes step { 0% { opacity: 0; transform: translateY(4px); } 4%, 29% { opacity: 1; transform: none; } 33%, 100% { opacity: 0; transform: translateY(-4px); } }
+.phone-turn { transform-box: fill-box; transform-origin: center; animation: coin 3.4s ease-in-out infinite; }
+.halo { transform-box: fill-box; transform-origin: center; animation: halo 2.4s ease-in-out infinite; }
+@keyframes halo { 50% { transform: scale(1.18); opacity: 0.55; } }
+.halo-ring { transform-box: fill-box; transform-origin: center; animation: halo-ring 3s ease-in-out infinite; }
+@keyframes halo-ring { 50% { transform: scaleX(0.4); opacity: 0.4; } }
+.tap { transform-box: fill-box; transform-origin: 0% 0%; animation: tap 0.26s ease-in-out infinite alternate; }
+.tap.t2 { animation-delay: -0.13s; }
+@keyframes tap { to { transform: rotate(-6deg); } }
+.order-pop { opacity: 0; animation: order 2.7s ease-out infinite; }
+.order-pop.o2 { animation-delay: -0.9s; }
+.order-pop.o3 { animation-delay: -1.8s; }
+@keyframes order { 0% { opacity: 0; transform: translateY(14px) scale(0.7); } 15% { opacity: 1; transform: none; } 75% { opacity: 1; transform: translateY(-26px); } 100% { opacity: 0; transform: translateY(-36px); } }
+
+/* ---------- Animation các cảnh sở thích ---------- */
+.strum { transform-box: fill-box; transform-origin: 0% 0%; animation: strum 0.42s ease-in-out infinite alternate; }
+@keyframes strum { from { transform: rotate(-12deg); } to { transform: rotate(8deg); } }
+.screen-light { animation: screen 1.2s steps(3) infinite; }
+@keyframes screen { 33% { opacity: 0.55; } 66% { opacity: 0.85; } }
+.flash { opacity: 0; transform-box: fill-box; transform-origin: center; animation: flash 2.6s ease-out infinite; }
+@keyframes flash { 0%, 82% { opacity: 0; transform: scale(0.4); } 86% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0; transform: scale(1.8); } }
+.camera { animation: snap 2.6s ease-out infinite; }
+@keyframes snap { 0%, 82%, 100% { transform: none; } 86% { transform: translateX(-1.5px); } }
+.munch { transform-box: fill-box; transform-origin: 0% 0%; animation: munch 2.4s ease-in-out infinite; }
+@keyframes munch { 0%, 40%, 100% { transform: rotate(0); } 58%, 74% { transform: rotate(-70deg); } }
+.kernel { opacity: 0; animation: kernel 2.4s ease-in-out infinite; }
+@keyframes kernel { 0%, 48% { opacity: 0; transform: translate(0, 0); } 56% { opacity: 1; } 70% { opacity: 1; transform: translate(-24px, -64px); } 73%, 100% { opacity: 0; transform: translate(-24px, -64px); } }
+/* giật mình khi vật thể 3D lao ra (đồng bộ với .pop3d, chu kỳ 4s) */
+.startle { transform-box: view-box; transform-origin: 66px 190px; animation: startle 4s ease-in-out infinite; }
+@keyframes startle { 0%, 60% { transform: none; } 68% { transform: rotate(-8deg) translateX(-3px); } 82% { transform: rotate(-2deg); } 92%, 100% { transform: none; } }
+.pop3d { transform-box: fill-box; transform-origin: center; animation: pop3d 4s cubic-bezier(0.5, 0, 0.75, 0) infinite; }
+@keyframes pop3d { 0% { opacity: 0; transform: translate(0, 0) scale(0.3); } 10% { opacity: 1; } 66% { opacity: 1; transform: translate(-70px, 70px) scale(2.6); } 74%, 100% { opacity: 0; transform: translate(-90px, 90px) scale(3.2); } }
+.pop-r { animation: pop-r 4s cubic-bezier(0.5, 0, 0.75, 0) infinite; }
+.pop-c { animation: pop-c 4s cubic-bezier(0.5, 0, 0.75, 0) infinite; }
+@keyframes pop-r { 0% { transform: translateX(-1px); } 66%, 100% { transform: translateX(-6px); } }
+@keyframes pop-c { 0% { transform: translateX(1px); } 66%, 100% { transform: translateX(6px); } }
+.wave { animation: wave 3s linear infinite; }
+.wave.w2 { animation-duration: 4.4s; animation-direction: reverse; }
+@keyframes wave { to { transform: translateX(40px); } }
+.foam { animation: foam 3.2s ease-in-out infinite alternate; }
+@keyframes foam { to { transform: translateY(3px); opacity: 0.6; } }
+.palm { transform-box: view-box; transform-origin: 76px 150px; animation: palm 3.4s ease-in-out infinite alternate; }
+@keyframes palm { from { transform: rotate(-4deg); } to { transform: rotate(5deg); } }
+.gull { transform-box: fill-box; transform-origin: center; animation: gull 0.6s ease-in-out infinite alternate; }
+.gull.g2 { animation-delay: -0.3s; }
+@keyframes gull { to { transform: scaleY(0.4) translateY(4px); } }
+.sun-glow { transform-box: fill-box; transform-origin: center; animation: halo 3s ease-in-out infinite; }
+
+/* Mobile: chừa chỗ cho cảnh lớn hơn */
+.m-mode .hero-copy .lead { max-width: 34ch; }
+@media (max-height: 860px) {
+  .m-mode .hero-copy .eyebrow { display: none; }
+}
+
+/* Nav không xuống dòng ở màn hình vừa */
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1100px) {
+  .nav-links a { padding: 8px 10px; }
+  .logo-text small { display: none; }
+}
+
+/* Toà ngân hàng & toà cho vay */
+.glass-sweep { animation: glass-sweep 6s ease-in-out infinite; }
+@keyframes glass-sweep { 0% { transform: translateX(-40px); } 60%, 100% { transform: translateX(300px); } }
+.win { animation: win 5s steps(1) infinite; }
+.win.w1 { animation-delay: -1.7s; }
+.win.w2 { animation-delay: -3.3s; }
+@keyframes win { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
+.atm { animation: blink 1.6s steps(1) infinite; }
+.atm.a2 { animation-delay: -0.8s; }
+.fin-progress { transform-box: fill-box; transform-origin: left; animation: loan 4s ease-in-out infinite; }
+.fin-ok { opacity: 0; transform-box: fill-box; transform-origin: center; animation: fin-ok 4s ease-out infinite; }
+@keyframes fin-ok { 0%, 64% { opacity: 0; transform: scale(0.4); } 72%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+.coin-drop { opacity: 0; animation: coin-drop 4s cubic-bezier(0.5, 0, 0.8, 0.4) infinite; }
+.coin-drop.c2 { animation-delay: 0.35s; }
+@keyframes coin-drop { 0%, 66% { opacity: 0; transform: translateY(-60px); } 70% { opacity: 1; } 80%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; transform: none; } }
+.stamp { opacity: 0; transform-box: fill-box; transform-origin: center; animation: stamp 4s ease-out infinite; }
+@keyframes stamp { 0%, 74% { opacity: 0; transform: scale(1.8) rotate(-20deg); } 80%, 94% { opacity: 1; transform: rotate(-12deg); } 100% { opacity: 0; transform: rotate(-12deg); } }
+
+/* Chữ Hán: không nghiêng, không giãn chữ */
+:lang(zh) h2 em, :lang(zh) .h1-role, :lang(zh) .cafe-caption h2 em { font-style: normal; }
+:lang(zh) .eyebrow, :lang(zh) .kicker, :lang(zh) .case dt { letter-spacing: 0.04em; }

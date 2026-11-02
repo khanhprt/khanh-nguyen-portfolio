@@ -1,0 +1,429 @@
+@font-face {
+  font-family: 'Pixelify Sans Variable';
+  font-style: normal; font-display: swap; font-weight: 400 700;
+  src: url('../assets/fonts/pixelify-sans-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Pixelify Sans Variable';
+  font-style: normal; font-display: swap; font-weight: 400 700;
+  src: url('../assets/fonts/pixelify-sans-latin-ext-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* =========================================================
+   GIAO DIỆN PIXEL — lớp cuối cùng, ghi đè bố cục mềm cũ.
+   Khung vuông, viền đậm, bóng đổ cứng; font pixel cho tiêu đề
+   và nhãn, Inter giữ cho đoạn văn. Mọi cạnh đều là lưới 2–8px.
+   ========================================================= */
+:root {
+  --pix: 'Pixelify Sans Variable', 'Inter Variable', system-ui, sans-serif;
+  --sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: var(--pix);
+  --ink: #1e2d24;
+  --ink-2: #3f5246;
+  --muted: #6c7d70;
+  --bg: #f1eedb;
+  --paper: #fbf9ec;
+  --line: #1e2d24;
+  --leaf: #c3dc8c;
+  --sage: #9bb586;
+  --sage-d: #557d4b;
+  --clay: #d9774e;
+  --clay-d: #a95c3d;
+  --radius: 0;
+  --px-depth: 6px;
+  --shadow: 6px 6px 0 #1e2d24;
+  --pix-grid: linear-gradient(rgba(85, 125, 75, 0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(85, 125, 75, 0.09) 1px, transparent 1px);
+}
+
+body { background: var(--bg); color: var(--ink); }
+::selection { background: var(--leaf); color: var(--ink); }
+:focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; }
+
+/* Font pixel cho mọi thứ mang tính nhãn hoặc tiêu đề. */
+h1, h2, h3, .logo-text, .nav-links a, .btn, .eyebrow, .kicker, .period, .chips li,
+.stats dt, .plaque-no, .bus-sign, .door span, .dock-tabs button, .dock-next, .case dt,
+.lang-toggle, .lang-list button, .field, .social, .scroll-hint, .coach, .more strong, .footer-note {
+  font-family: var(--pix);
+}
+h1, h2, h3 { letter-spacing: 0; line-height: 1.02; font-weight: 700; }
+h2 em, .h1-role { font-family: var(--pix); font-style: normal; font-weight: 700; color: var(--zone-accent); }
+.h1-name { letter-spacing: 0; font-weight: 700; }
+.kicker, .period, .eyebrow { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.kicker { color: var(--zone-kicker); }
+.period { color: var(--zone-accent); }
+.lead, .summary, .section-intro p, .plaque p, .case dd, .field input, .field textarea { font-family: var(--sans); }
+
+/* ---------- Nút & khung ---------- */
+.btn {
+  border: 3px solid var(--ink); border-radius: 0; padding: 12px 18px;
+  font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.12s steps(2), box-shadow 0.12s steps(2), background 0.1s steps(1);
+}
+.btn:hover { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+.btn-primary { background: var(--leaf); color: var(--ink); }
+.btn-primary:hover { background: #d4e8a4; color: var(--ink); }
+.btn-ghost { background: var(--paper); border-color: var(--ink); }
+.btn-ghost:hover { background: #fff; border-color: var(--ink); }
+.btn-light { background: #fff; color: var(--ink); }
+.btn-light:hover { background: var(--clay); color: #fff; }
+.eyebrow { background: var(--paper); border: 2px solid var(--ink); padding: 6px 12px 6px 10px; box-shadow: 3px 3px 0 var(--sage); }
+.pulse { border-radius: 0; background: var(--sage-d); box-shadow: none; animation: pix-blink 1.2s steps(1) infinite; }
+@keyframes pix-blink { 50% { background: var(--leaf); } }
+.chips li { border: 2px solid var(--ink); border-radius: 0; background: var(--leaf); color: var(--ink); padding: 3px 8px; font-size: 0.85rem; font-weight: 600; }
+.glass {
+  background: var(--paper); border: 3px solid var(--ink); border-radius: 0;
+  backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: var(--shadow);
+}
+.glass-dark {
+  background: #22362b; border: 3px solid #0f1a13; border-radius: 0;
+  backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 6px 6px 0 #0f1a13;
+}
+.station-card, .contact-card { border-radius: 0; }
+.station-card { border: 3px solid var(--ink); box-shadow: var(--px-depth) var(--px-depth) 0 var(--zone-shadow); padding: 24px 26px; }
+.station-card h3 { font-size: 1.9rem; }
+
+/* ---------- Thanh điều hướng ---------- */
+.nav { padding: 12px 14px 0; }
+.nav-inner { border-radius: 0; padding: 8px 10px; box-shadow: 4px 4px 0 var(--ink); }
+.nav-links { gap: 6px; }
+.nav-links a { border-radius: 0; padding: 7px 12px; font-size: 1rem; font-weight: 600; border: 2px solid transparent; }
+.nav-links a:hover { background: var(--leaf); border-color: var(--ink); color: var(--ink); }
+.nav-links a.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); box-shadow: none; }
+.logo-mark { width: 40px; height: 40px; border-radius: 0; background: var(--ink); color: var(--leaf); font-size: 1.6rem; font-weight: 700; box-shadow: 3px 3px 0 var(--clay); }
+.logo-text { font-size: 1rem; font-weight: 700; }
+.logo-text small { font-size: 0.72rem; letter-spacing: 0.06em; font-weight: 600; }
+.lang-toggle { border: 2px solid var(--ink); border-radius: 0; background: var(--paper); height: 38px; font-size: 0.95rem; box-shadow: 2px 2px 0 var(--ink); }
+.lang-toggle:hover { background: var(--leaf); }
+.lang-list { border: 3px solid var(--ink); border-radius: 0; box-shadow: var(--shadow); background: var(--paper); }
+.lang-list button { border-radius: 0; font-size: 1rem; }
+.lang-list button[aria-checked='true'] { background: var(--leaf); color: var(--ink); }
+.lang-list button[aria-checked='true'] span { color: var(--ink); }
+.nav.is-dark .nav-inner, .nav.on-dark .nav-inner { background: var(--paper); }
+.nav.is-dark .logo-text, .nav.is-dark .nav-links a { color: var(--ink-2); }
+.nav.is-dark .nav-links a.is-active { background: var(--ink); color: var(--paper); }
+.nav.is-dark .logo-mark, .nav.is-dark .btn-primary { background: var(--ink); color: var(--leaf); }
+.nav.is-dark .lang-toggle { background: var(--paper); border-color: var(--ink); color: var(--ink); }
+
+/* ---------- Hero ---------- */
+.panel-hero { background-color: var(--zone-bg); background-image: var(--pix-grid); background-size: 24px 24px; }
+.h-mode .hero-copy h1 { margin: 18px 0 14px; }
+.hero-copy h1 .h1-name { text-shadow: 4px 4px 0 var(--sage); }
+.stats dt { font-size: 2.2rem; font-weight: 700; color: var(--ink); }
+.stats dd { font-family: var(--sans); }
+.stats { border-top: 3px dashed var(--sage); }
+.hero-copy .lead { color: var(--ink-2); }
+.door { border: 4px solid var(--ink); border-bottom: none; border-radius: 0; background: var(--paper); box-shadow: 6px 0 0 var(--sage); }
+.door span { border: 2px solid var(--ink); border-radius: 0; background: var(--leaf); color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+.door-gallery { border-color: var(--ink); background: #3a4a3e; }
+.door-gallery span { background: var(--clay); color: #fff; }
+.scroll-hint { color: var(--ink-2); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.mouse { border-radius: 0; width: 18px; height: 28px; border-width: 3px; }
+.mouse::after { border-radius: 0; }
+
+/* Cảnh ảnh pixel: khung đậm và bóng cứng. Vị trí neo vào nhân vật để chuyển cảnh liền mạch. */
+.pixel-scene {
+  position: absolute; z-index: 2; display: block; height: auto; max-width: none; margin: 0;
+  border: 4px solid var(--ink); box-shadow: 10px 10px 0 var(--sage); background: #dfe9cf;
+  pointer-events: none; user-select: none;
+}
+.h-mode .pixel-scene-hero, .h-mode .pixel-scene-cafe { aspect-ratio: auto; right: auto; }
+.h-mode .pixel-scene-hero { width: min(48vw, 760px); left: calc(var(--walker-x) - min(48vw, 760px) * 0.27); bottom: var(--floor); }
+.h-mode .pixel-scene-cafe { width: min(52vw, 820px); left: calc(var(--walker-x) - min(52vw, 820px) * 0.35); bottom: var(--floor); }
+.h-mode .door-exit { display: none; }
+.m-mode .pixel-scene-hero, .m-mode .pixel-scene-cafe { width: 84vw; left: 8vw; bottom: calc(var(--floor) + 2vh); aspect-ratio: auto; right: auto; }
+html:not(.h-mode) .pixel-scene { position: relative; left: auto; bottom: auto; width: 100%; margin: 40px 0 0; }
+
+/* ---------- Nhân vật pixel ---------- */
+.h-mode .walker {
+  display: block; position: absolute; z-index: 6; bottom: var(--floor); pointer-events: none; opacity: 0;
+  height: calc(var(--scene-h) * 0.56); aspect-ratio: 450 / 548; width: auto;
+  left: var(--walker-x); transform: translateX(-50%);
+}
+.walker-shadow {
+  position: absolute; left: 50%; bottom: -1%; width: 70%; height: 10px; transform: translateX(-50%);
+  background: #1e2d2459; border-radius: 0; box-shadow: 0 0 0 4px #1e2d2426;
+}
+.pixel-walker, .actor {
+  display: block; width: 100%; height: 100%; image-rendering: auto;
+  background: url('../assets/pixel/engineer-sheet.webp') no-repeat; background-size: 700% 100%;
+  background-position: calc(var(--frame, 0) * 100% / 6) 0;
+  transform: scaleX(var(--facing, 1)) translateY(var(--pixel-step, 0px)); transform-origin: 50% 100%;
+}
+.pixel-walker {
+  background-image: url('../assets/pixel/engineer-walk-cycle.webp');
+  background-size: 600% 100%;
+  background-position: calc(var(--frame, 0) * 100% / 5) 0;
+}
+.actor { position: relative; height: 360px; width: auto; aspect-ratio: 450 / 548; justify-self: center; transform: none; }
+.h-mode .actor {
+  position: absolute; bottom: var(--floor); pointer-events: none; opacity: 0; z-index: 3;
+  height: calc(var(--scene-h) * 0.56); aspect-ratio: 450 / 548; width: auto;
+  left: var(--walker-x); transform: translateX(-50%);
+}
+html:not(.h-mode) .walker { display: none; }
+
+/* ---------- Hành trình: trời, mây, nhà ---------- */
+.panel-journey { background-color: var(--zone-bg); background-image: linear-gradient(180deg, var(--zone-bg) 0 58%, var(--zone-bg-2) 58% 100%); }
+.h-mode .station-card { top: 11vh; }
+/* Minh hoạ trạm nằm ngay trong khung hình khi dừng; nhân vật đứng trước mặt. */
+.h-mode .building { left: 50vw; }
+.h-mode .hobby-art { left: 50vw; height: 46vh; }
+.sky { background: radial-gradient(circle at 84% 14%, #f7e2a6 0 46px, transparent 47px), linear-gradient(180deg, #d5e7c4 0 40%, transparent 40%); }
+.clouds { opacity: 1; }
+.skyline-far { opacity: 0.95; }
+.skyline-near { opacity: 1; }
+.bus-sign { width: 5.4vh; height: 5.4vh; border-radius: 0; background: var(--clay); color: var(--paper); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.bus-sign small { font-size: 0.5rem; letter-spacing: 0.02em; }
+.bus-pole { border-radius: 0; background: var(--ink); width: 4px; }
+.tree { border-radius: 0; background: var(--clay-d); width: 8px; }
+.tree span { border-radius: 0; background: var(--sage-d); clip-path: polygon(0 20%, 25% 20%, 25% 0, 75% 0, 75% 20%, 100% 20%, 100% 80%, 75% 80%, 75% 100%, 25% 100%, 25% 80%, 0 80%); }
+.building { filter: drop-shadow(6px 6px 0 rgba(30, 45, 36, 0.35)); }
+
+/* Sàn: mép trên đậm, lát gỗ/gạch theo bậc */
+.floor { border-top: 4px solid var(--ink); }
+.floor-office { background: repeating-linear-gradient(90deg, #d6b48a 0 96px, #c79f70 96px 100px); }
+.floor-street { background: repeating-linear-gradient(90deg, #d8d4bd 0 64px, #c9c4aa 64px 68px); }
+.floor-hobbies { background: repeating-linear-gradient(90deg, #d19d6e 0 96px, #bd8858 96px 100px); }
+.floor-gallery { background: repeating-linear-gradient(90deg, #e4dfc8 0 48px, #d6d0b6 48px 52px); }
+.floor-gallery::after { background: none; }
+.floor-cafe { background: repeating-linear-gradient(90deg, #6e5440 0 96px, #5d4535 96px 100px); }
+
+/* ---------- Gallery ---------- */
+.panel-gallery { background-color: var(--zone-bg); background-image: var(--pix-grid); background-size: 28px 28px; }
+.frame { border: 4px solid var(--ink); border-radius: 0; padding: 8px; box-shadow: calc(var(--px-depth) + 4px) calc(var(--px-depth) + 4px) 0 var(--zone-shadow); background: #263c30; }
+.frame-inner { border-radius: 0; }
+.frame-overlay { inset: 8px; }
+.frame:hover, .frame:focus-visible { transform: translate(-4px, -4px); box-shadow: calc(var(--px-depth) + 8px) calc(var(--px-depth) + 8px) 0 var(--zone-shadow); }
+.frame-overlay .btn { border-width: 3px; }
+.plaque { gap: 14px; }
+.plaque-no { font-size: 1.8rem; color: var(--zone-accent); font-weight: 700; }
+.plaque h3 { font-size: 1.3rem; color: var(--ink); font-weight: 700; }
+.plaque p { font-size: 0.85rem; color: var(--muted); }
+
+/* ---------- Sở thích ---------- */
+.panel-hobbies { background-color: var(--zone-bg); background-image: linear-gradient(180deg, var(--zone-bg) 0 55%, var(--zone-bg-2) 55% 100%); }
+.hobby-art { border: 0; box-shadow: none; }
+.hobby-svg { image-rendering: pixelated; }
+
+/* ---------- Liên hệ (quán cà phê) ---------- */
+.panel-contact { background-color: var(--zone-bg); background-image: var(--pix-grid); background-size: 24px 24px; color: #f1ecd9; }
+.panel-contact .kicker, .contact-after .kicker, .panel-contact h2 em { color: var(--leaf); }
+.contact-card h2 { font-weight: 700; }
+.field { font-size: 0.85rem; font-weight: 600; color: #e9e3cf; }
+.field input, .field textarea { border: 2px solid #f1ecd966; border-radius: 0; background: #1a2a21; padding: 10px 12px; }
+.field input:focus, .field textarea:focus { border-color: var(--leaf); background: #13211a; box-shadow: 3px 3px 0 var(--leaf); }
+.panel-contact .btn-primary, .contact-after .btn-primary { background: var(--leaf); color: var(--ink); }
+.panel-contact .btn-primary:hover { background: var(--clay); color: #fff; }
+.social { border: 2px solid #f1ecd966; border-radius: 0; padding: 8px 12px; color: #f1ecd9; }
+.social:hover { background: var(--leaf); color: var(--ink); border-color: var(--leaf); box-shadow: 3px 3px 0 var(--clay); }
+.socials { border-top: 3px dashed #f1ecd933; }
+.cafe-caption h2 em { color: var(--leaf); }
+.footer-note { font-family: var(--pix); font-size: 0.9rem; }
+
+/* ---------- Modal / dialog ---------- */
+.modal-card, .portfolio-dialog .modal-card { border: 4px solid var(--ink); border-radius: 0; box-shadow: 12px 12px 0 var(--sage); }
+.portfolio-dialog { border-radius: 0; box-shadow: 12px 12px 0 #0007; }
+.portfolio-dialog::backdrop { background: #1e2d24cc; backdrop-filter: none; }
+.modal-body h3 { font-size: 2.2rem; font-weight: 700; }
+.modal-close, .sheet-close, .modal-x {
+  border: 3px solid var(--ink); border-radius: 0; background: var(--leaf); color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink); width: 40px; height: 40px; font-size: 1.4rem;
+}
+.modal-close:hover { transform: none; background: var(--clay); color: #fff; }
+.case dt { color: var(--sage-d); font-size: 0.85rem; letter-spacing: 0.06em; }
+.contact-dialog { border-radius: 0; }
+.contact-dialog .contact-card { box-shadow: none; }
+
+/* ---------- Dock điều hướng (mobile) ---------- */
+.stage-dock { border: 3px solid var(--ink); border-radius: 0; box-shadow: 6px 6px 0 var(--ink); background: var(--paper); }
+.dock-tabs { gap: 4px; }
+.dock-tabs button { border-radius: 0; font-size: 0.8rem; font-weight: 600; border: 2px solid transparent; }
+.dock-tabs button.is-active { background: var(--leaf); border-color: var(--ink); color: var(--ink); }
+.dock-dots b { border-radius: 0; }
+.dock-dots b.is-current { background: var(--clay); }
+.dock-arrow, .dock-next { border: 3px solid var(--ink); border-radius: 0; box-shadow: 3px 3px 0 var(--ink); font-size: 1rem; }
+.dock-arrow { background: var(--paper); color: var(--ink); width: 48px; }
+.dock-next { background: var(--ink); color: var(--paper); }
+.stage-dock.is-start .dock-next { background: var(--sage-d); animation: none; }
+.stage-dock.is-end .dock-next { background: var(--clay); }
+.sheet-panel { border-radius: 0; background: #22362b; border-top: 3px solid var(--ink); box-shadow: none; }
+.coach { border: 3px solid var(--ink); border-radius: 0; box-shadow: 4px 4px 0 var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-walker, .actor { transform: scaleX(var(--facing, 1)); }
+  .pulse { animation: none; }
+}
+
+/* ---------- Cảnh trạm: chuyển động pixel (steps để giữ nhịp khung hình) ---------- */
+.h-mode .building.station-art { height: 44vh; }
+.m-mode .building.station-art { height: 30vh; }
+.station-art { aspect-ratio: 4 / 3; }
+.station-art > svg, .pixel-vision > svg { display: block; width: 100%; height: 100%; }
+.pixel-vision { position: absolute; inset: 0; display: block; }
+.station-art { transition: transform 0.2s steps(2); }
+.station:hover .station-art { transform: translateY(-6px); }
+
+.px-blink, .px-blink-b { animation: px-blink 1.2s steps(1) infinite; }
+.px-blink-b { animation-delay: -0.6s; }
+@keyframes px-blink { 50% { opacity: 0; } }
+
+.px-flicker { transform-box: fill-box; transform-origin: 50% 100%; animation: px-flicker 0.5s steps(2) infinite; }
+@keyframes px-flicker { 0% { transform: scale(1, 1); } 50% { transform: scale(0.9, 1.1); } }
+
+.px-bob { animation: px-bob 1.6s steps(2) infinite; }
+@keyframes px-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+.px-spin, .px-spin-slow, .px-spin-rev { transform-box: fill-box; transform-origin: 50% 50%; }
+.px-spin { animation: px-spin 0.4s linear infinite; }
+.px-spin-slow { animation: px-spin 6s linear infinite; }
+.px-spin-rev { animation: px-spin 4s linear infinite reverse; }
+@keyframes px-spin { to { transform: rotate(360deg); } }
+
+.px-belt { animation: px-belt 3.2s steps(8) infinite; }
+@keyframes px-belt { to { transform: translateX(-80px); } }
+
+.px-type, .px-type-b, .px-type-c, .px-type-d {
+  transform-box: fill-box; transform-origin: 0% 50%; animation: px-type 2.4s steps(6) infinite;
+}
+.px-type-b { animation-delay: -0.6s; }
+.px-type-c { animation-delay: -1.2s; }
+.px-type-d { animation-delay: -1.8s; }
+@keyframes px-type { 0% { transform: scaleX(0); } 70%, 100% { transform: scaleX(1); } }
+
+/* Rê chuột vào trạm hoặc dự án: cảnh sống động hơn. */
+.station:hover .px-scene *, .frame:hover .px-scene *, .hobby:hover .px-scene * { animation-duration: 0.5s !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .px-blink, .px-blink-b, .px-flicker, .px-bob, .px-spin, .px-spin-slow, .px-spin-rev, .px-belt, .px-type, .px-type-b, .px-type-c, .px-type-d { animation: none; }
+  .station-art { transition: none; }
+  .station:hover .station-art { transform: none; }
+}
+
+/* Workstations are assembled from separate character, furniture and screen layers. */
+.actor { background: none; width: 280px; height: auto; aspect-ratio: 1 / 1; }
+.h-mode .actor { width: calc(var(--scene-h) * 0.64); height: auto; aspect-ratio: 1 / 1; z-index: 5; }
+.actor > span { position: absolute; display: block; }
+.frame-slot .actor { display: none; }
+.h-mode .frame-slot .actor { display: block; }
+
+/* Independent activity sprites complement the animated equipment at each stop. */
+.action-actor .action-person { position: absolute; bottom: 0; left: 10%; width: 80%; height: 100%; object-fit: contain; object-position: center bottom; image-rendering: pixelated; }
+.action-actor[data-scene='inspection'] .action-person, .action-actor[data-scene='travel'] .action-person { height: 65%; }
+.action-signal { right: 8%; top: 20%; width: 8px; height: 8px; background: #c3dc8c; box-shadow: 12px -10px 0 #d9774e; animation: action-signal 1.4s steps(1) infinite; }
+@keyframes action-signal { 50% { opacity: 0; } }
+.px-smoke { animation: px-smoke 1.8s steps(4) infinite; }
+@keyframes px-smoke { to { transform: translate(8px, -16px); opacity: 0; } }
+.px-roller { animation: px-roller 0.8s steps(2) infinite; }
+@keyframes px-roller { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .action-signal, .px-smoke, .px-roller { animation: none; } }
+
+/* Keep Vietnamese typography consistent instead of mixing fallback glyphs. */
+html:lang(vi) { --pix: 'Inter Variable', system-ui, sans-serif; }
+html:lang(vi) h1, html:lang(vi) h2, html:lang(vi) h3 { line-height: 1.18; }
+
+/* Let station illustrations share the surrounding wall and floor. */
+.station-art { filter: none; }
+.station-art > .px-scene > rect:first-child { display: none; }
+.station-art > .px-scene-ehs > rect:nth-child(2),
+.station-art > .px-scene-mech > rect:nth-child(2),
+.station-art > .px-scene-learn > rect:nth-child(2) { display: none; }
+.station:hover .station-art { transform: none; }
+.pixel-scene { border: 0; box-shadow: none; background: transparent; mask-image: radial-gradient(ellipse 72% 75% at 50% 50%, #000 58%, transparent 100%); }
+.h-mode .floor { border-top-color: #6d8062; }
+
+/* ---------- Màn mở đầu pixel ---------- */
+.px-intro { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; pointer-events: auto; }
+.px-intro-grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(16, 1fr); grid-template-rows: repeat(9, 1fr); }
+.px-intro-grid span { background: var(--ink); animation: px-tile-out 0.14s steps(1) var(--d, 0ms) forwards; }
+@keyframes px-tile-out { to { opacity: 0; visibility: hidden; } }
+.px-intro-logo {
+  position: relative; margin: 0; font: 700 clamp(4rem, 14vw, 9rem)/1 var(--pix); color: var(--leaf);
+  text-shadow: 6px 6px 0 var(--clay); animation: px-logo-in 0.3s steps(3) 0.15s both, px-logo-out 0.2s steps(2) 1s forwards;
+}
+.px-intro-logo span { color: var(--clay); }
+@keyframes px-logo-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes px-logo-out { to { opacity: 0; } }
+
+/* ---------- Con trỏ và nút âm thanh ---------- */
+body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='34' viewBox='0 0 12 17' shape-rendering='crispEdges'%3E%3Crect x='0' y='0' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='1' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='2' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='3' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='3' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='3' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='3' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='4' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='4' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='4' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='4' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='4' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='5' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='5' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='5' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='5' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='5' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='5' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='6' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='6' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='6' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='6' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='6' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='6' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='6' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='7' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='7' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='7' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='8' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='8' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='8' y='8' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='9' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='8' y='9' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='9' y='9' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='10' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='10' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='10' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='4' y='10' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='10' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='7' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='8' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='9' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='10' y='10' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='11' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='11' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='11' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='3' y='11' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='4' y='11' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='5' y='11' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='11' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='12' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='12' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='2' y='12' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='4' y='12' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='5' y='12' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='12' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='12' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='13' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='1' y='13' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='4' y='13' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='5' y='13' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='6' y='13' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='13' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='0' y='14' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='5' y='14' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='6' y='14' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='14' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='8' y='14' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='5' y='15' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='6' y='15' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='7' y='15' width='1' height='1' fill='%23fbf9ec'/%3E%3Crect x='8' y='15' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='6' y='16' width='1' height='1' fill='%231e2d24'/%3E%3Crect x='7' y='16' width='1' height='1' fill='%231e2d24'/%3E%3C/svg%3E") 0 0, auto; }
+a, button, [role='button'] { cursor: pointer; }
+.sfx-toggle {
+  display: inline-flex; align-items: center; gap: 4px; height: 38px; padding: 0 8px; border: 2px solid var(--ink);
+  border-radius: 0; background: var(--paper); color: var(--ink); font: 700 0.75rem var(--pix); box-shadow: 2px 2px 0 var(--ink); cursor: pointer;
+}
+.sfx-toggle:hover { background: var(--leaf); }
+.sfx-toggle[aria-pressed='true'] { background: var(--ink); color: var(--leaf); }
+.sfx-toggle span[aria-hidden] { font-size: 0.95rem; }
+@media (max-width: 720px) { .sfx-state { display: none; } }
+
+/* ---------- Hệ màu theo khu vực: mỗi section có bộ nền, nhấn và bóng riêng ---------- */
+.panel-hero { --zone-bg: #f1eedb; --zone-bg-2: #f1eedb; --zone-accent: #d9774e; --zone-kicker: #557d4b; --zone-shadow: #9bb586; }
+.panel-journey { --zone-bg: #dde9c9; --zone-bg-2: #eef0d6; --zone-accent: #d9774e; --zone-kicker: #557d4b; --zone-shadow: #9bb586; }
+.panel-gallery { --zone-bg: #e6ecd6; --zone-bg-2: #e6ecd6; --zone-accent: #d9774e; --zone-kicker: #557d4b; --zone-shadow: #9bb586; }
+.panel-hobbies { --zone-bg: #f6e2c8; --zone-bg-2: #f0d2b0; --zone-accent: #a95c3d; --zone-kicker: #a95c3d; --zone-shadow: #d9a57e; }
+.panel-contact { --zone-bg: #22362b; --zone-bg-2: #22362b; --zone-accent: #c3dc8c; --zone-kicker: #c3dc8c; --zone-shadow: #0f1a13; }
+
+/* Pixel simulations inspired by the project recordings. */
+.pixel-vision > .project-simulation { display: block; width: 100%; height: 100%; }
+.sim-camera-alert { animation: sim-alert 1.5s steps(1) infinite; }
+.sim-aerial { animation: sim-aerial 7s steps(24) infinite alternate; }
+.sim-worker { animation: sim-worker 8s steps(40) infinite; }
+.sim-zone-alert { animation: sim-zone-alert 8s steps(1) infinite; }
+@keyframes sim-alert { 50% { opacity: .35; } }
+@keyframes sim-aerial { to { transform: translate(-12px, -6px); } }
+@keyframes sim-worker { 0% { transform: translate(93px, -55px); } 70%, 100% { transform: translate(103px, 90px); } }
+@keyframes sim-zone-alert { 0%, 42%, 100% { opacity: 0; } 55%, 75% { opacity: 1; } 65%, 85% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .sim-camera-alert, .sim-aerial, .sim-worker, .sim-zone-alert { animation: none; } .sim-worker { transform: translate(103px, 65px); } }
+
+/* A single transparent illustration keeps the seated workstation cohesive. */
+.workstation-actor .workstation-image { position: absolute; left: -20%; bottom: 0; width: 150%; height: 100%; object-fit: contain; object-position: center bottom; image-rendering: auto; }
+
+/* Keep the skill description and seated scene balanced within one stop. */
+@media (min-width: 901px) {
+  .h-mode .hobbies .station, .h-mode .hobbies .station:last-child { width: 100vw; }
+  .h-mode .hobbies .station-card { left: 6vw; top: 27vh; width: min(30vw, 420px); }
+}
+.h-mode .workstation-actor { width: calc(var(--scene-h) * .82); }
+.workstation-actor .workstation-image { left: -20%; width: 140%; image-rendering: pixelated; }
+.h-mode .station[data-scene='guitar'] .station-art,
+.h-mode .station[data-scene='movies'] .station-art {
+  left: calc(var(--walker-x) + 5vw);
+  bottom: calc(var(--floor) + var(--scene-h) * .65);
+  height: min(19vh, 180px);
+  opacity: .88;
+}
+.m-mode .workstation-actor { width: calc(var(--scene-h) * .95); }
+.m-mode .station[data-scene='guitar'] .station-art,
+.m-mode .station[data-scene='movies'] .station-art {
+  left: calc(var(--walker-x) + 10vw);
+  bottom: calc(var(--floor) + var(--scene-h) * .72);
+  height: min(13vh, 24vw);
+}
+
+/* A quiet pixel-art room gives each skills scene a shared sense of place. */
+.skill-backdrop { display: none; pointer-events: none; }
+.h-mode .skill-backdrop {
+  display: block; position: absolute; z-index: 0; left: 35vw; bottom: var(--floor);
+  width: min(62vw, 920px); height: min(58vh, 570px); opacity: .8;
+}
+.m-mode .skill-backdrop {
+  left: 5vw; bottom: var(--floor); width: 90vw; height: 39vh; opacity: .7;
+}
+@media (max-height: 720px) { .m-mode .skill-backdrop { height: 31vh; } }
+
+/* The animated displays sit on a small wall shelf, with visible supports. */
+.h-mode .station[data-scene='guitar'] .station-art::before,
+.h-mode .station[data-scene='movies'] .station-art::before {
+  content: ''; position: absolute; z-index: 0; left: 7%; right: 7%; bottom: 8%;
+  height: 7%; background: #a97858; border: 3px solid #596b56;
+  box-shadow: 0 4px 0 #d4a27c;
+}
+.h-mode .station[data-scene='guitar'] .station-art::after,
+.h-mode .station[data-scene='movies'] .station-art::after {
+  content: ''; position: absolute; z-index: 0; left: 18%; right: 18%; bottom: -3%;
+  height: 12%; border-left: 5px solid #7d8269; border-right: 5px solid #7d8269;
+}
+.h-mode .station[data-scene='guitar'] .station-art > svg,
+.h-mode .station[data-scene='movies'] .station-art > svg { position: relative; z-index: 1; }

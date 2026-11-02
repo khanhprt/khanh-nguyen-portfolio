@@ -1,0 +1,96 @@
+/* React controls visibility and modal lifecycles. */
+:root {
+  --sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Playfair Display Variable', Georgia, serif;
+}
+html:not(.h-mode) { scroll-padding-top: 100px; }
+.scene-wrapper { display: contents; }
+.hero-copy { opacity: 1; }
+.lang-list { display: block; opacity: 1; visibility: visible; transform: none; }
+.lang-list button { width: 100%; }
+.frame { font: inherit; text-align: left; cursor: pointer; color: inherit; }
+.frame:hover, .frame:focus-visible { transform: translateY(-8px) scale(1.015); }
+.frame:hover .frame-overlay, .frame:focus-visible .frame-overlay { opacity: 1; }
+.frame:hover .frame-overlay .btn, .frame:focus-visible .frame-overlay .btn { transform: none; }
+.social > div { width: 18px; height: 18px; }
+.social svg { width: 100%; height: 100%; }
+.portfolio-dialog {
+  position: fixed; margin: auto; border: 0; background: transparent; padding: 0; color: var(--ink);
+  width: min(920px, calc(100vw - 32px)); max-width: none;
+  max-height: calc(100dvh - 32px); overflow: auto; border-radius: 24px;
+  box-shadow: 0 40px 120px #0006;
+}
+.portfolio-dialog::backdrop { background: #14161f99; backdrop-filter: blur(10px); }
+.portfolio-dialog .modal-card { width: 100%; max-height: none; margin: 0; overflow: visible; transform: none; opacity: 1; }
+.portfolio-dialog .modal-card { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.portfolio-dialog .modal-media { min-width: 0; aspect-ratio: auto; }
+.portfolio-dialog .modal-body { min-width: 0; }
+@media (max-width: 720px) {
+  .portfolio-dialog .modal-card { grid-template-columns: minmax(0, 1fr); }
+  .portfolio-dialog .modal-media { aspect-ratio: 16 / 10; min-height: 0; }
+  .portfolio-dialog .modal-body { padding: 28px 24px; }
+}
+.portfolio-dialog .modal-close, .portfolio-dialog .sheet-close { z-index: 5; }
+.portfolio-dialog .modal-body > * + * { margin-top: 1.25rem; }
+.portfolio-dialog .modal-body .case > * + * { margin-top: 1.25rem; }
+.contact-dialog { width: min(560px, 100vw); margin: auto auto 0; border-radius: 24px 24px 0 0; }
+.contact-dialog .sheet-panel { position: relative; transform: none; height: auto; max-height: calc(100dvh - 24px); overflow: auto; }
+.contact-dialog .contact-card { position: static; transform: none; width: 100%; max-height: none; margin: 0; padding: 42px 24px 28px; }
+.contact-dialog .sheet-close { position: absolute; }
+.m-mode .contact-dialog .contact-card { display: block; }
+.nav.on-dark .nav-inner { background: #fffdf9e8; }
+@media (max-width: 720px) {
+  .nav-inner { gap: 8px; }
+  .nav-actions { gap: 6px; }
+  .logo-text small { font-size: 0.55rem; }
+  .nav-actions > .btn { padding: 10px 12px; font-size: 0.72rem; }
+  .lang-toggle { padding-inline: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal, .hero-copy { opacity: 1 !important; transform: none; }
+}
+
+/* A mobile dialog lives outside the cafe section, so it owns its dark theme. */
+.contact-dialog .contact-card {
+  color: #f6efe7; background: transparent; border: 0;
+  box-shadow: none; backdrop-filter: none;
+}
+.contact-dialog .kicker, .contact-dialog h2 em { color: #ffb08a; }
+.contact-dialog .btn-primary { background: #fff; color: var(--ink); }
+.contact-dialog .btn-primary:hover { background: #ffb08a; }
+.contact-dialog .social { color: #f6efe7; border-color: #ffffff40; }
+.contact-dialog .social:hover { background: #ffffff1a; }
+.frame-inner { display: block; }
+/* Pixel-inspired gallery treatment, while keeping the walking scene and footage. */
+.panel-gallery { background-color: #e8eddb; background-image: linear-gradient(#79966412 1px, transparent 1px), linear-gradient(90deg, #79966412 1px, transparent 1px); background-size: 28px 28px; }
+.frame { border-radius: 0; background: #263c30; padding: 10px; box-shadow: 8px 8px 0 #a4b892; }
+.frame-inner { border-radius: 0; }
+.frame-overlay { inset: 10px; }
+.plaque-no { font-family: monospace; color: #cf7751; }
+.plaque h3 { color: #263c30; }
+.pixel-vision { display: block; position: absolute; inset: 0; overflow: hidden; background: #dce8c2; }
+.pixel-grid { position: absolute; inset: 0; background-image: linear-gradient(#99ad7d44 1px, transparent 1px), linear-gradient(90deg, #99ad7d44 1px, transparent 1px); background-size: 24px 24px; }
+.pixel-monitor { position: absolute; width: 34%; height: 40%; left: 33%; top: 26%; background: #354f3d; box-shadow: 7px 0 #354f3d, -7px 0 #354f3d, 0 7px #354f3d, 0 -7px #354f3d, 13px 13px #a3bc82; }
+.pixel-screen { position: absolute; inset: 12%; background: #b9d77f; border: 7px solid #f3f2d9; }
+.pixel-lens { position: absolute; width: 30%; aspect-ratio: 1; left: 35%; top: 25%; background: #354f3d; box-shadow: 0 0 0 6px #7da65f; }
+.pixel-light { position: absolute; width: 10px; height: 10px; right: 5px; top: 5px; background: #e98d5d; }
+.pixel-stand { position: absolute; width: 50%; height: 8px; left: 25%; bottom: -20px; background: #354f3d; box-shadow: 0 8px #354f3d; }
+.pixel-cross, .pixel-star { position: absolute; font: 22px monospace; color: #789663; }
+.pixel-cross-a { top: 10%; left: 12%; }.pixel-cross-b { bottom: 16%; right: 12%; }.pixel-star { top: 8%; right: 8%; }
+.pixel-label { position: absolute; bottom: 12px; left: 14px; font: 700 9px monospace; letter-spacing: .12em; color: #607b53; }
+.modal-media .pixel-vision { min-height: 100%; }
+.panel-gallery .gallery-intro .kicker { color: #638348; }
+.panel-gallery .gallery-intro h2 em { color: #d4774e; }
+/* Shared pixel-world palette for the journey. */
+:root { --accent: #64844e; --accent-2: #c8754f; }
+.panel-hero { background: #f7f5e9; }
+.panel-journey, .panel-hobbies { background: #e7eedb; }
+.panel-contact { background: #263d31; }
+.station-card, .contact-card, .nav-inner, .btn, .eyebrow, .chip { border-radius: 2px; }
+.station-card { border: 2px solid #354d39; box-shadow: 6px 6px 0 #aabd99; }
+.btn-primary { background: #34513b; }
+.bus-sign { border-radius: 0; background: #6d8d53; }
+.h-mode .floor-office, .h-mode .floor-street, .h-mode .floor-hobbies { background: repeating-linear-gradient(90deg, #d3c5a7 0 72px, #c5b796 72px 76px); }
+.h-mode .floor-cafe { background: repeating-linear-gradient(90deg, #816c50 0 72px, #6a5a43 72px 76px); }
+

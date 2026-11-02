@@ -1,0 +1,54 @@
+/* Editorial palette follows the lavender, peach, and cream of the website. */
+.av {
+  --d-tie: none; --d-sun: none; --d-g3d: none;
+  --skin: #efbda0; --skin-d: #d99f83; --ear: #eab090;
+  --shirt: #a5a3e9; --shirt-d: #7e7fc6; --shirt-highlight: #cdc9fc;
+  --inner: #fff9ec; --code-mark: #9393b9;
+  --pants: #374460; --pants-d: #2d3850; --pants-seam: #71809e; --pants-cuff: #465672;
+  --shoe: #faf7ef; --shoe-d: #dce0e6; --sole: #c4cbd5;
+  --shoe-panel: #c1bce6; --shoe-laces: #a1a8b8;
+  --collar: #bbb8f1; --tie: #6578a3;
+}
+.outfit-bank, .av[data-outfit='bank'] {
+  --shirt: #e3e8f2; --shirt-d: #bdc9df; --shirt-highlight: #f4f6fa;
+  --collar: #f6f5f2; --tie: #737cad; --d-tie: inline;
+}
+.outfit-ops, .av[data-outfit='ops'] {
+  --shirt: #a9c5c3; --shirt-d: #7daba8; --shirt-highlight: #cfdfd7; --collar: #bdd4cd;
+}
+.outfit-finance, .av[data-outfit='finance'] {
+  --shirt: #b7c9e5; --shirt-d: #8fa9d0; --shirt-highlight: #d5e0ee; --collar: #dce5f0;
+  --tie: #7884ad; --d-tie: inline;
+}
+.outfit-luxury, .av[data-outfit='luxury'] {
+  --shirt: #4b5472; --shirt-d: #353e59; --shirt-highlight: #757f9a; --collar: #65718f;
+}
+.outfit-beach, .av[data-outfit='beach'] {
+  --shirt: #e8c1a2; --shirt-d: #ce9f80; --shirt-highlight: #f5d6b8; --collar: #efcfb0;
+  --pants: #a2afbc; --pants-d: #8999aa; --pants-cuff: #acbbc7;
+}
+.character-skin { fill: var(--skin); }
+.character-skin-d { fill: var(--skin-d); }
+.character-sleeve { fill: var(--shirt); }
+.character-sleeve-d { fill: var(--shirt-d); }
+.character-pants { fill: var(--pants); }
+.character-pants-d { fill: var(--pants-d); }
+.character-inner { fill: var(--inner); }
+.character-torso .av-shirt, .character-torso .av-collar,
+.av-shoe, .av-shoe-d, .av-pants-fill { stroke: none; }
+
+.outfit-beach, .av[data-outfit='beach'] { --d-sun: inline; }
+.outfit-cinema, .av[data-outfit='cinema'] { --d-g3d: inline; }
+.av-skin { fill: var(--skin); }
+.av-ear { fill: var(--ear); }
+.av-shirt { fill: var(--shirt); }
+.av-collar { fill: var(--collar); }
+.av-tie { display: var(--d-tie); }
+.av-tie-fill { fill: var(--tie); }
+.av-sun { display: var(--d-sun); }
+.av-g3d { display: var(--d-g3d); }
+.av-hand { fill: var(--skin); }
+.av-hand-d { fill: var(--skin-d); }
+.av-shoe { fill: var(--shoe); }
+.av-shoe-d { fill: var(--shoe-d); }
+.av-pants-fill { fill: var(--pants); }

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="scene cafe-scene" viewBox="0 0 600 420" role="img" aria-label="Khanh Nguyen at a café table offering a business card">
+          <defs>
+            
+            
+            <linearGradient id="g-dusk" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2e3a68" />
+              <stop offset=".6" stop-color="#b8708a" />
+              <stop offset="1" stop-color="#f3a46c" />
+            </linearGradient>
+            <radialGradient id="g-warm" cx=".5" cy=".5" r=".5">
+              <stop offset="0" stop-color="#ffcf8a" stop-opacity=".55" />
+              <stop offset="1" stop-color="#ffcf8a" stop-opacity="0" />
+            </radialGradient>
+            <clipPath id="clip-arch"><path d="M60 250 V110 Q60 40 190 40 Q320 40 320 110 V250 Z" /></clipPath>
+          </defs>
+
+          <path d="M52 256 V108 Q52 32 190 32 Q328 32 328 108 V256 Z" fill="#4a3b33" />
+          <g clip-path="url(#clip-arch)">
+            <rect x="60" y="40" width="260" height="210" fill="url(#g-dusk)" />
+            <circle cx="250" cy="200" r="26" fill="#ffd3a1" opacity=".9" />
+            <g fill="#1f2340">
+              <rect x="60" y="170" width="30" height="80" /><rect x="94" y="140" width="24" height="110" /><rect x="122" y="182" width="38" height="68" />
+              <rect x="164" y="150" width="28" height="100" /><rect x="196" y="176" width="40" height="74" /><rect x="240" y="130" width="22" height="120" />
+              <rect x="266" y="168" width="54" height="82" />
+            </g>
+            <g fill="#ffd98f" class="city-lights">
+              <rect x="100" y="152" width="4" height="4" /><rect x="108" y="170" width="4" height="4" /><rect x="170" y="164" width="4" height="4" />
+              <rect x="178" y="188" width="4" height="4" /><rect x="246" y="144" width="4" height="4" /><rect x="252" y="170" width="4" height="4" />
+              <rect x="280" y="182" width="4" height="4" /><rect x="132" y="196" width="4" height="4" /><rect x="206" y="190" width="4" height="4" />
+            </g>
+          </g>
+          <line x1="190" y1="40" x2="190" y2="250" stroke="#4a3b33" stroke-width="5" />
+          <rect x="44" y="252" width="292" height="8" rx="3" fill="#5c4a40" />
+
+          
+          <line x1="350" y1="0" x2="350" y2="70" stroke="#1b1512" stroke-width="2" />
+          <path d="M330 92 Q350 60 370 92 Z" fill="#c99b5d" />
+          <ellipse class="lamp-glow" cx="350" cy="200" rx="100" ry="110" fill="url(#g-warm)" />
+          <line x1="520" y1="0" x2="520" y2="50" stroke="#1b1512" stroke-width="2" />
+          <path d="M502 72 Q520 42 538 72 Z" fill="#c99b5d" />
+          <ellipse class="lamp-glow" cx="520" cy="170" rx="80" ry="100" fill="url(#g-warm)" />
+
+          
+          <rect x="446" y="140" width="154" height="8" rx="2" fill="#6b5446" />
+          <circle cx="470" cy="128" r="12" fill="#6aa57c" /><rect x="462" y="128" width="16" height="12" fill="#e9dfd2" />
+          <rect x="500" y="122" width="10" height="18" fill="#d9cfc0" /><rect x="514" y="116" width="10" height="24" fill="#ff8a5c" /><rect x="528" y="126" width="10" height="14" fill="#d9cfc0" />
+          <rect x="480" y="232" width="74" height="58" rx="6" fill="#c9ced8" />
+          <rect x="486" y="238" width="62" height="14" rx="3" fill="#9aa1b0" />
+          <rect x="498" y="256" width="8" height="14" fill="#5d6372" /><rect x="528" y="256" width="8" height="14" fill="#5d6372" />
+          <rect x="440" y="290" width="160" height="12" rx="3" fill="#8a6a55" />
+          <rect x="446" y="302" width="154" height="118" fill="#6b4f3f" />
+          <g stroke="#5a4134" stroke-width="2"><line x1="486" y1="302" x2="486" y2="420" /><line x1="526" y1="302" x2="526" y2="420" /><line x1="566" y1="302" x2="566" y2="420" /></g>
+
+          
+          <rect x="312" y="322" width="7" height="90" fill="#3a2e28" />
+          <ellipse cx="315" cy="414" rx="28" ry="5" fill="#3a2e28" />
+          <rect x="262" y="314" width="108" height="9" rx="4" fill="#efe6da" />
+
+          
+          <g class="steam" fill="none" stroke="#d8cbb8" stroke-width="2" stroke-linecap="round" opacity=".8">
+            <path class="s1" d="M338 292 q-5 -8 0 -14 q5 -6 0 -14" />
+            <path class="s2" d="M345 290 q-5 -8 0 -14 q5 -6 0 -14" />
+          </g>
+          <path d="M332 296 H354 L352 314 H334 Z" fill="#fff" />
+          <path d="M353 300 q8 0 7 6 q-1 5 -8 4" fill="none" stroke="#fff" stroke-width="3" />
+
+          
+          <path d="M176 262 Q186 300 192 352" fill="none" stroke="#2a201b" stroke-width="7" stroke-linecap="round" />
+          <rect x="182" y="350" width="86" height="10" rx="5" fill="#3a2e28" />
+          <line x1="192" y1="360" x2="186" y2="418" stroke="#2a201b" stroke-width="5" stroke-linecap="round" />
+          <line x1="258" y1="360" x2="264" y2="418" stroke="#2a201b" stroke-width="5" stroke-linecap="round" />
+
+          
+          <!-- CHARACTER -->
+        </svg>
