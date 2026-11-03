@@ -1,12 +1,7 @@
-# Cloudflare Pages configuration
-# Tên project trên Cloudflare Pages
+
 name = "khanh-nguyen-portfolio"
+compatibility_date = "2026-11-02"
 
-# Build settings
-[build]
-  command = "npm run build"
-  output_directory = "dist"
-
-# (Tuỳ chọn) Khóa phiên bản Node cho môi trường build
-[vars]
-  NODE_VERSION = "22.12"
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
