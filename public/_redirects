@@ -1,3 +1,0 @@
-# Cloudflare Pages - SPA fallback
-# Đảm bảo các route ảo không bị 404 khi user reload trang
-/*    /index.html   200
