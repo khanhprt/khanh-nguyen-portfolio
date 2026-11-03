@@ -6,7 +6,7 @@ const project = (i) => {
 };
 export const portfolio = {
   name: 'Khanh Nguyen', role: 'AI Vision Engineer', contact: { email: 'khanh.ng95@gmail.com' },
-  socials: [{ label: 'Facebook', icon: 'facebook', url: 'https://fb.com/aruen123' }],
+  socials: [{ label: 'Facebook', icon: 'facebook', url: '' }],
   experience: [{ period: bilingual('03.2019 — Nay', 'Mar 2019 — Present'), role: 'Software Automation Engineer — AI & Vision', company: 'Samsung Electronics Vietnam Thai Nguyen', summary: bilingual(content.vi.expText, content.en.expText), stack: ['Computer Vision', 'Edge AI', 'EHS'], building: 'pod', scene: 'pod' }],
   hobbies: [
     { art: 'guitar', title: bilingual('Computer Vision', 'Computer Vision'), text: bilingual('Phát hiện đối tượng, nhận diện hành vi và kiểm tra chất lượng bằng thị giác máy tính.', 'Object detection, behavior recognition and visual quality inspection.'), tags: ['Object Detection', 'Vision'] },
