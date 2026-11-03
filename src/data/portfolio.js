@@ -5,8 +5,8 @@ const project = (i) => {
   return { title: vi.title, year: i === 2 ? '2024–2025' : '2025', category: bilingual(vi.type, en.type), role: 'AI Engineer', stack: vi.tags, problem: bilingual(vi.problem, en.problem), solution: bilingual(vi.solution, en.solution), result: bilingual(i === 0 ? 'Hệ thống cảnh báo được tích hợp vào quy trình EHS của nhà máy.' : 'Ứng dụng AI vào bài toán thực tế trong môi trường công nghiệp.', i === 0 ? 'Alerts are integrated into factory EHS workflows.' : 'Applying AI to real-world industrial challenges.'), colors: ['#dfead4','#253c34','#dc875d'], layout: 'b', url: 'AI VISION / SEVT', link: '', repo: '' };
 };
 export const portfolio = {
-  name: 'Khanh Nguyen', role: 'AI Vision Engineer', contact: { email: 'you@example.com' },
-  socials: [{ label: 'Facebook', icon: 'facebook', url: '' }],
+  name: 'Khanh Nguyen', role: 'AI Vision Engineer', contact: { email: 'khanh.ng95@gmail.com' },
+  socials: [{ label: 'Facebook', icon: 'facebook', url: 'https://fb.com/aruen123' }],
   experience: [{ period: bilingual('03.2019 — Nay', 'Mar 2019 — Present'), role: 'Software Automation Engineer — AI & Vision', company: 'Samsung Electronics Vietnam Thai Nguyen', summary: bilingual(content.vi.expText, content.en.expText), stack: ['Computer Vision', 'Edge AI', 'EHS'], building: 'pod', scene: 'pod' }],
   hobbies: [
     { art: 'guitar', title: bilingual('Computer Vision', 'Computer Vision'), text: bilingual('Phát hiện đối tượng, nhận diện hành vi và kiểm tra chất lượng bằng thị giác máy tính.', 'Object detection, behavior recognition and visual quality inspection.'), tags: ['Object Detection', 'Vision'] },

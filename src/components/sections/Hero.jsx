@@ -13,7 +13,7 @@ export const Hero = memo(function Hero({ navigate }) {
         <a key={id} className={`btn ${i === 0 ? 'btn-primary' : 'btn-ghost'}`} href={`#${id}`}
           onClick={(event) => { event.preventDefault(); navigate(id); }}>{t(i === 0 ? 'hero.ctaProjects' : 'hero.ctaContact')}</a>)}
       </div>
-      <dl className="stats"><div><dt>4+</dt><dd>{t('hero.stat1')}</dd></div><div><dt>80</dt><dd>{t('hero.stat2')}</dd></div></dl>
+      <dl className="stats"><div><dt>4+</dt><dd>{t('hero.stat1')}</dd></div><div><dt>100+</dt><dd>{t('hero.stat2')}</dd></div></dl>
     </div>
     <img id="seated-hero" className="pixel-scene pixel-scene-hero" src={visionLab} alt="" aria-hidden="true" draggable="false" />
     <div className="door door-exit" aria-hidden="true"><span>EXIT</span></div>
